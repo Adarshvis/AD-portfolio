@@ -82,5 +82,42 @@ export const resumeData = {
   education: [
     { degree: "B.Tech in Information Technology", school: "University of Delhi", period: "2022 - 2026" },
     { degree: "Class 12th (PCM)", school: "Saraswati Shishu Mandir", period: "2022" }
-  ]
+  ],
+  academicJourney: {
+    projects: [
+      {
+        title: "ZeroHunger (Web-based Application)",
+        description: "A web-based platform designed to reduce food waste and donate surplus food to NGOs. Developed and designed the frontend using HTML, JavaScript, React, and TailwindCSS.",
+        tech: ["HTML", "JavaScript", "React", "TailwindCSS"]
+      },
+      {
+        title: "Using Language Models to Solve Linear Programming Problems",
+        description: "Explored the use of Large Language Models (LLMs) to solve optimization tasks like resource allocation and logistics. Evaluated single-step and multi-step approaches, showing LLMs can produce accurate and practical solutions.",
+        tech: ["Python", "LLMs", "Optimization"]
+      },
+      {
+        title: "Steganography in Spatial Domain",
+        description: "Combined Least Significant Bit (LSB) and Spread Spectrum Image Steganography (SSIS) to securely embed messages within images while preserving quality. Outperformed traditional methods based on PSNR and MSE metrics.",
+        tech: ["Python", "Image Processing", "Cryptography"]
+      },
+      {
+        title: "Mathematical Modeling of Crime Against Women in India",
+        description: "Developed a regression-based model analyzing socio-economic factors such as population density, unemployment, and per capita income. Predicted crime trends, showing crime rates increase with unemployment and population but decrease with GDP.",
+        tech: ["Python", "Statistical Modeling", "Data Analysis"]
+      }
+    ],
+    conferences: [
+      {
+        title: "A Heterogeneous Ensemble Approach for Improving Robustness in Facial Expression Recognition Across Variable Conditions",
+        authors: "Anjani Kumar, Shantanu Pandey, Adarsh Kumar Sharma and Swastik Guha Roy",
+        affiliation: "Cluster Innovation Centre, University of Delhi, New Delhi, India",
+        abstract: "Facial expression recognition has emerged as a critical area of research with applications spanning human-computer interaction, mental health analysis, and affective computing. This study presents a practical and scalable approach to facial expression recognition (FER) that targets three persistent challenges: class imbalance, appearance variability, and deployment efficiency. We introduce a class-balancing data-augmentation pipeline using rotations, translations, shearing, zooming, and flips to equalise class frequencies on AffectNet and FER2013 subsets, then train and compare modern architectures and recent relevant literature. Motivated by the complementary strengths of different model families, we propose a heterogeneous ensemble that combines attention-based (ViT), MLP-based (MLP-Mixer), hybrid (CoAtNet), and modern convolutional (ConvNeXt) backbones to improve robustness across pose, lighting, and occlusion. Experiments on the prepared datasets demonstrate clear gains over standard baselines, and the pipeline was validated in a real-time setting. Results indicate that carefully balancing datasets and leveraging architectural diversity yield measurable improvements in per-class performance and overall accuracy, highlighting a viable path toward fairer and more deployable FER systems.",
+        keywords: "Facial Expression Recognition, Class Imbalance, Data Augmentation, Ensemble Learning, Vision Transformer (ViT)",
+        conference: "International Conference on Mathematical Sciences and Computational Intelligence (ICMSCI-2026)",
+        organizer: "Department of Mathematics, PG DAV College, University of Delhi, in association with the Faculty of Mathematical Sciences, University of Delhi, and National Institute of Technology (NIT), Mandi & Uttarakhand",
+        date: "Feb 2026",
+        period: "20-22 February 2026"
+      }
+    ]
+  }
 }

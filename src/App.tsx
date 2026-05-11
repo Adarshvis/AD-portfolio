@@ -53,7 +53,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'experience', 'projects', 'education', 'skills', 'awards']
+      const sections = ['about', 'experience', 'academic', 'projects', 'education', 'skills', 'awards']
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -83,7 +83,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center glass px-8 py-4 rounded-full">
         <span className="text-xl font-bold tracking-tighter text-[hsl(189,87%,53%)]">Adarsh</span>
         <div className="hidden md:flex gap-8 text-sm font-medium uppercase tracking-widest">
-          {['About', 'Experience', 'Projects', 'Education', 'Skills', 'Awards'].map((item) => (
+          {['About', 'Experience', 'Academic', 'Projects', 'Education', 'Skills', 'Awards'].map((item) => (
             <a 
               key={item} 
               href={`#${item.toLowerCase()}`} 
@@ -267,6 +267,146 @@ export default function App() {
                 </ul>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Academic Journey Section */}
+      <section id="academic" className="py-24 px-6">
+        <div className="container mx-auto">
+          <div className="flex items-center justify-center gap-4 mb-16">
+            <div className="p-3 glass rounded-2xl text-accent">
+              <GraduationCap size={32} />
+            </div>
+            <h2 className="text-4xl font-bold">My Academic Journey</h2>
+          </div>
+          
+          <div className="max-w-5xl mx-auto space-y-6">
+            {/* Academic Projects */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="glass rounded-2xl overflow-hidden border-l-4 border-l-accent"
+            >
+              <details className="group">
+                <summary className="cursor-pointer p-8 hover:bg-white/[0.05] transition-all list-none flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <Code2 size={28} className="text-accent" />
+                    <h3 className="text-2xl font-bold">Academic Projects</h3>
+                  </div>
+                  <motion.div
+                    className="text-accent"
+                    animate={{ rotate: 0 }}
+                    whileHover={{ rotate: 90 }}
+                  >
+                    <ArrowRight size={24} className="group-open:rotate-90 transition-transform" />
+                  </motion.div>
+                </summary>
+                <div className="px-8 pb-8 space-y-6">
+                  {resumeData.academicJourney.projects.map((project, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1 }}
+                      className="glass p-6 rounded-xl hover:bg-white/[0.05] transition-all"
+                    >
+                      <h4 className="text-xl font-bold mb-3 text-accent">{project.title}</h4>
+                      <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tech.map((tech, j) => (
+                          <span 
+                            key={j}
+                            className="px-3 py-1 bg-accent/10 rounded-lg text-xs font-mono border border-accent/30 text-accent"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </details>
+            </motion.div>
+
+            {/* Conferences & Publications */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="glass rounded-2xl overflow-hidden border-l-4 border-l-primary"
+            >
+              <details className="group">
+                <summary className="cursor-pointer p-8 hover:bg-white/[0.05] transition-all list-none flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <Trophy size={28} className="text-primary" />
+                    <h3 className="text-2xl font-bold">Publications & Conference Papers</h3>
+                  </div>
+                  <motion.div
+                    className="text-primary"
+                    animate={{ rotate: 0 }}
+                    whileHover={{ rotate: 90 }}
+                  >
+                    <ArrowRight size={24} className="group-open:rotate-90 transition-transform" />
+                  </motion.div>
+                </summary>
+                <div className="px-8 pb-8 space-y-6">
+                  {resumeData.academicJourney.conferences.map((conf, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1 }}
+                      className="glass p-6 rounded-xl hover:bg-white/[0.05] transition-all"
+                    >
+                      <div className="flex items-start justify-between mb-3">
+                        <h4 className="text-xl font-bold text-primary flex-1">{conf.title}</h4>
+                        <span className="px-3 py-1 glass rounded-full text-sm font-mono text-primary">{conf.date}</span>
+                      </div>
+                      
+                      <p className="text-sm text-muted-foreground mb-3">
+                        <span className="font-semibold text-foreground">Authors:</span> {conf.authors}
+                      </p>
+                      
+                      <p className="text-sm text-muted-foreground mb-4">
+                        <span className="font-semibold text-foreground">Affiliation:</span> {conf.affiliation}
+                      </p>
+                      
+                      <div className="mb-4 p-4 bg-white/[0.02] rounded-lg border border-white/5">
+                        <p className="text-sm font-semibold text-accent mb-2">Abstract:</p>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{conf.abstract}</p>
+                      </div>
+                      
+                      <div className="mb-4">
+                        <p className="text-sm font-semibold text-foreground mb-2">Keywords:</p>
+                        <div className="flex flex-wrap gap-2">
+                          {conf.keywords.split(', ').map((keyword, j) => (
+                            <span 
+                              key={j}
+                              className="px-3 py-1 bg-primary/10 rounded-lg text-xs font-mono border border-primary/30 text-primary"
+                            >
+                              {keyword}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      <p className="text-lg font-semibold text-accent mb-2">{conf.conference}</p>
+                      <p className="text-muted-foreground text-sm leading-relaxed mb-2">
+                        {conf.organizer}
+                      </p>
+                      <p className="text-muted-foreground text-sm">
+                        Held during <span className="text-foreground font-medium">{conf.period}</span>
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </details>
+            </motion.div>
           </div>
         </div>
       </section>
